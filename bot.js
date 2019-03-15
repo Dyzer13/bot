@@ -132,4 +132,39 @@ client.on("message", message => {
       }, Math.random() * (1 - 3) + 1 * 1000);
 
 
+      
+      const status1 = ['dnd','online','idle'] // تعريفات الحالات
+client.on("ready", async  => { 
+     setInterval(function(){ // انشاء فنكشن
+         client.user.setStatus(`${status1[Math.floor(Math.random() * status1.length)]}`) // هذا السطر يغير حالة البوت الى حالة عشوائية من الحالات الي فوق
+         }, 5000); // هذا السطر يعيد تنفيذ الامر كل دقيقة يمديك تغير الرقم
+		 });
+      
+      
+      client.on('message', message => {
+    if (message.content.includes('discord.gg')){
+                        if(!message.channel.guild) return message.reply ('')
+                    if (!message.member.hasPermissions(['MANAGE_MESSAGES'])){
+       message.channel.send('kick <@' + message.author.id + '>')
+       message.delete() 
+       } /////////////// Galal , ALPHA CODES
+    } /////////////// Galal , ALPHA CODES
+          if (message.content.startsWith("mute")) {
+             if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply();
+             var member= message.mentions.members.first();
+             member.kick().then((member) => {
+                 message.channel.sendMessage("", {embed: {
+                 author: {  /////////////// Galal , ALPHA CODES
+                 },  /////////////// Galal , ALPHA CODES
+                 title: 'بسبب النشر ' + member.displayName + ' تم حظر', 
+                 color: 490101,
+                 }
+               });
+           }  /////////////// Galal , ALPHA CODES
+         ) 
+       }  /////////////// Galal , ALPHA CODES
+   });  /////////////// Galal , ALPHA CODES
+
+
+      
 client.login(process.env.TOKEN);
