@@ -131,17 +131,7 @@ client.on("message", message => {
         message.channel.stopTyping(); //////// Galal , Alpha Codes
       }, Math.random() * (1 - 3) + 1 * 1000);
 
-
-      
-      const status1 = ['dnd','online','idle'] // تعريفات الحالات
-client.on("ready", async  => { 
-     setInterval(function(){ // انشاء فنكشن
-         client.user.setStatus(`${status1[Math.floor(Math.random() * status1.length)]}`) // هذا السطر يغير حالة البوت الى حالة عشوائية من الحالات الي فوق
-         }, 5000); // هذا السطر يعيد تنفيذ الامر كل دقيقة يمديك تغير الرقم
-		 });
-
-      
-   });  
+ 
 	client.on("message", message => {
   if (message.channel.type === "dm") { //////// Galal , Alpha Codes
 
