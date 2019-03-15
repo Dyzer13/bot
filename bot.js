@@ -124,43 +124,23 @@ if (message.content.startsWith(adminprefix + 'setava')) {
 }
 });
 
-client.on("message", message => {
-                      if(message.content === 'رابط' ) {
-						  message.channel.send('**شيك الخاص يحلو 😉**').then(msg => {
-							  msg.edit('وش فيك منتظر رح شوف الكود فالخاص')
-						  
-						  });
-                        message.channel.createInvite({
-                        thing: true,
-                        maxUses: 10,
-                        maxAge: 86400
-                        }).then(invite =>
-       
-							   message.author.sendMessage(invite.url)
-							  
-                             )						 
-					}});
-
 
 client.on('message', message => {
-  if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
+    if (message.content.startsWith("رابط")) {
 
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
+  message.channel.createInvite({
+        thing: true,
+        maxUses: 5,
+        maxAge: 86400
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+  message.channel.send("**:link:.تم ارسال الرابط برسالة خاصة**")
 
-  let args = message.content.split(" ").slice(1);
-
-
-
-if (command == "say") {
-let rank = message.guild.member(message.author).roles.find('name', 'Say');
-if (!rank) return message.reply('انت لا يمكنك استخدام الكود الي با رتبه')
-  message.channel.send(args.join("  "))
-    message.delete();
-  }
+message.author.send(`**مدة الرابط : يـوم
+عدد استخدامات الرابط : 5**`)
 
 
-});
+    }
 
 client.login(process.env.TOKEN);
