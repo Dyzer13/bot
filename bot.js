@@ -154,7 +154,7 @@ client.on('message', message => {
 
 
 if (command == "say") {
-let rank = message.guild.member(message.author).roles.find('name', 'اسم رتبه');
+let rank = message.guild.member(message.author).roles.find('name', 'Say');
 if (!rank) return message.reply('انت لا يمكنك استخدام الكود الي با رتبه')
   message.channel.send(args.join("  "))
     message.delete();
