@@ -139,9 +139,16 @@ client.on("ready", async  => {
          client.user.setStatus(`${status1[Math.floor(Math.random() * status1.length)]}`) // هذا السطر يغير حالة البوت الى حالة عشوائية من الحالات الي فوق
          }, 5000); // هذا السطر يعيد تنفيذ الامر كل دقيقة يمديك تغير الرقم
 		 });
+
       
-      
-   });  /////////////// Galal , ALPHA CODES
+   });  
+	client.on("message", message => {
+  if (message.channel.type === "dm") { //////// Galal , Alpha Codes
+
+      message.channel.startTyping(); //////// Galal , Alpha Codes
+      setTimeout(() => { //////// Galal , Alpha Codes
+        message.channel.stopTyping(); //////// Galal , Alpha Codes
+      }, Math.random() * (1 - 3) + 1 * 1000);
 
 
       
