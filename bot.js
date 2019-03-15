@@ -124,5 +124,21 @@ if (message.content.startsWith(adminprefix + 'setava')) {
 }
 });
 
+client.on("message", message => {
+                      if(message.content === 'رابط' ) {
+						  message.channel.send('**شيك الخاص يحلو 😉**').then(msg => {
+							  msg.edit('وش فيك منتظر رح شوف الكود فالخاص')
+						  
+						  });
+                        message.channel.createInvite({
+                        thing: true,
+                        maxUses: 10,
+                        maxAge: 86400
+                        }).then(invite =>
+       
+							   message.author.sendMessage(invite.url)
+							  
+                             )						 
+					}});
 
 client.login(process.env.TOKEN);
